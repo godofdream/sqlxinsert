@@ -73,7 +73,7 @@ pub fn derive_from_struct_sqlite(input: TokenStream) -> TokenStream {
         impl #struct_name {
             pub fn insert_query(&self, table: &str) -> String
             {
-                let sqlquery = format!("insert into {} ( {} ) values ( {} )", table, #columns, #values); //self.values );
+                let sqlquery = format!("insert or replace into {} ( {} ) values ( {} )", table, #columns, #values); //self.values );
                 sqlquery
             }
 
